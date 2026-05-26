@@ -68,7 +68,7 @@ function SettingsModal({ onClose }) {
           <span className="close" onClick={() => onClose(false)}>×</span>
         </div>
         <div className="modal-body">
-          <p style={{marginBottom: 14}}>Keys are stored only in this browser's <code>localStorage</code>. Switch any time. Click <em>Test</em> before saving to verify a key works.</p>
+          <p style={{marginBottom: 14}}>Your keys are never shared. They're only kept in this browser's <code>localStorage</code>. Click TEST to verify a key before saving. Delete any key and SAVE to remove from localStorage.</p>
 
           <div className="settings-grid">
             <div className="settings-list">
