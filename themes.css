@@ -562,7 +562,7 @@
 }
 .sp-dot.ok { background: var(--green); box-shadow: 0 0 6px var(--green); }
 [data-theme="brutalist"] .sp-dot { border-radius: 0; }
-[data-theme="brutalist"] .settings-prov.active { background: #000; color: #fff; border-color: #000; }
+[data-theme="brutalist"] .settings-prov.active { background: #000; color: #fff; border-color: var(--green); }
 [data-theme="brutalist"] .settings-prov.active .sp-name { color: #fff; }
 [data-theme="brutalist"] .settings-prov.active .sp-sub { color: #aaa; }
 

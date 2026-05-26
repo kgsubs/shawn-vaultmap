@@ -72,7 +72,7 @@ function SettingsModal({ onClose }) {
 
           <div className="settings-grid">
             <div className="settings-list">
-              {order.map(id => {
+              {order.filter(id => id !== 'builtin').map(id => {
                 const p = window.PROVIDERS[id];
                 const active = id === config.providerId;
                 const hasKey = (id === 'custom') ? !!(config.custom.baseUrl) : (!p.needsKey || !!(config.keys[id] || '').length);
@@ -167,12 +167,6 @@ function SettingsModal({ onClose }) {
                         </button>
                       </div>
                     </>
-                  )}
-
-                  {config.providerId === 'builtin' && (
-                    <div className="sd-note">
-                      This works only inside the artifact preview. When you open <code>index.html</code> from disk you'll need to switch to a real provider.
-                    </div>
                   )}
 
                   {config.providerId === 'anthropic' && (
