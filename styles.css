@@ -42,7 +42,7 @@ html, body, #root {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 26px;
   line-height: 1.5;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
@@ -153,7 +153,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 
 .topbar .meta {
   color: var(--fg-dim);
-  font-size: 11px;
+  font-size: 22px;
   white-space: nowrap;
 }
 @media (max-width: 1000px) {
@@ -163,7 +163,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 .topbar .legend {
   display: flex;
   gap: 6px;
-  font-size: 11px;
+  font-size: 22px;
   color: var(--fg-dim);
   align-items: center;
   flex-wrap: nowrap;
@@ -178,7 +178,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 }
 .topbar .legend .sw:hover { transform: scale(1.25); }
 .topbar .legend-label {
-  font-size: 10px;
+  font-size: 20px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--fg-faint);
@@ -197,7 +197,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   padding: 0 10px;
   gap: 14px;
   background: var(--bg-1);
-  font-size: 11px;
+  font-size: 22px;
   color: var(--fg-dim);
 }
 .statusbar .pill {
@@ -212,7 +212,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
    ============================================================ */
 
 .panel-header {
-  font-size: 10px;
+  font-size: 20px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--green-dim);
@@ -226,7 +226,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 }
 .panel-header .hint {
   color: var(--fg-faint);
-  font-size: 10px;
+  font-size: 20px;
   text-transform: none;
   letter-spacing: 0;
 }
@@ -280,7 +280,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 .chip {
   padding: 2px 6px;
   border: 1px solid var(--line-2);
-  font-size: 10px;
+  font-size: 20px;
   color: var(--fg-dim);
   cursor: pointer;
   user-select: none;
@@ -317,15 +317,15 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 .result:hover { background: var(--bg-2); }
 .result.active { background: var(--bg-3); }
 .result .dot { width: 8px; height: 8px; }
-.result .title { color: var(--fg); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.result .title { color: var(--fg); font-size: 24px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .result .title em { color: var(--green); font-style: normal; text-shadow: var(--glow); }
-.result .meta { color: var(--fg-faint); font-size: 10px; }
-.result .links { color: var(--fg-dim); font-size: 10px; }
+.result .meta { color: var(--fg-faint); font-size: 20px; }
+.result .links { color: var(--fg-dim); font-size: 20px; }
 
 .empty-state {
   padding: 18px 12px;
   color: var(--fg-faint);
-  font-size: 11px;
+  font-size: 22px;
   line-height: 1.6;
 }
 .empty-state .kbd {
@@ -333,7 +333,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   padding: 1px 5px;
   border: 1px solid var(--line-2);
   color: var(--fg-dim);
-  font-size: 10px;
+  font-size: 20px;
   margin: 0 2px;
 }
 
@@ -371,7 +371,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   height: 30px;
   padding: 0;
   color: var(--fg);
-  font-size: 15px;
+  font-size: 30px;
   line-height: 1;
   display: inline-flex;
   align-items: center;
@@ -419,7 +419,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   top: 12px;
   left: 12px;
   color: var(--fg-faint);
-  font-size: 10px;
+  font-size: 20px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   pointer-events: none;
@@ -429,7 +429,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   padding: 1px 5px;
   border: 1px solid var(--line-2);
   color: var(--fg-dim);
-  font-size: 10px;
+  font-size: 20px;
   margin: 0 2px;
   letter-spacing: 0;
   text-transform: none;
@@ -440,7 +440,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   bottom: 12px;
   right: 12px;
   color: var(--fg-faint);
-  font-size: 10px;
+  font-size: 20px;
   pointer-events: none;
   letter-spacing: 0.08em;
 }
@@ -451,7 +451,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   background: var(--bg-1);
   border: 1px solid var(--green-dim);
   padding: 4px 8px;
-  font-size: 11px;
+  font-size: 22px;
   color: var(--fg);
   white-space: nowrap;
   z-index: 5;
@@ -459,7 +459,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 }
 .tooltip .tag {
   color: var(--fg-dim);
-  font-size: 10px;
+  font-size: 20px;
 }
 
 .lasso-info {
@@ -470,7 +470,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   border: 1px solid var(--amber-dim);
   padding: 6px 10px;
   color: var(--amber);
-  font-size: 11px;
+  font-size: 22px;
   pointer-events: auto;
   display: flex;
   gap: 10px;
@@ -500,13 +500,13 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 .note-empty {
   padding: 24px 16px;
   color: var(--fg-faint);
-  font-size: 12px;
+  font-size: 24px;
   line-height: 1.7;
 }
 .note-empty h3 {
   color: var(--green);
   margin: 0 0 8px 0;
-  font-size: 12px;
+  font-size: 24px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -520,7 +520,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   flex: 1;
   text-align: center;
   padding: 6px 8px;
-  font-size: 10px;
+  font-size: 20px;
   color: var(--fg-dim);
   cursor: pointer;
   letter-spacing: 0.14em;
@@ -541,14 +541,14 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   padding: 0 4px;
   background: var(--line-2);
   color: var(--fg);
-  font-size: 9px;
+  font-size: 18px;
 }
 
 .note-scroll { flex: 1; overflow-y: auto; min-height: 0; }
 .note-body { padding: 14px 16px 24px; }
 
 .note-title {
-  font-size: 16px;
+  font-size: 32px;
   font-weight: 600;
   color: var(--fg);
   margin: 0 0 4px 0;
@@ -556,7 +556,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   letter-spacing: -0.01em;
 }
 .note-path {
-  font-size: 10px;
+  font-size: 20px;
   color: var(--fg-faint);
   margin-bottom: 8px;
   letter-spacing: 0.04em;
@@ -568,7 +568,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   margin-bottom: 12px;
 }
 .note-tag {
-  font-size: 10px;
+  font-size: 20px;
   color: var(--cyan);
   border: 1px solid var(--line-2);
   padding: 1px 6px;
@@ -576,11 +576,11 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 }
 .note-tag:hover { border-color: var(--cyan); background: var(--bg-2); }
 
-.markdown { color: var(--fg); font-size: 12.5px; line-height: 1.65; }
+.markdown { color: var(--fg); font-size: 25px; line-height: 1.65; }
 .markdown h1, .markdown h2, .markdown h3 { color: var(--green); margin: 16px 0 6px; font-weight: 600; }
-.markdown h1 { font-size: 14px; }
-.markdown h2 { font-size: 13px; letter-spacing: 0.04em; }
-.markdown h3 { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-dim); }
+.markdown h1 { font-size: 28px; }
+.markdown h2 { font-size: 26px; letter-spacing: 0.04em; }
+.markdown h3 { font-size: 24px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-dim); }
 .markdown p { margin: 8px 0; }
 .markdown ul, .markdown ol { padding-left: 20px; margin: 8px 0; }
 .markdown li { margin: 3px 0; }
@@ -591,7 +591,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   background: var(--bg-2);
   padding: 1px 4px;
   border: 1px solid var(--line);
-  font-size: 11.5px;
+  font-size: 23px;
   color: var(--amber);
 }
 .markdown blockquote {
@@ -604,7 +604,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 .markdown hr { border: none; border-top: 1px dashed var(--line-2); margin: 14px 0; }
 
 .section-h {
-  font-size: 10px;
+  font-size: 20px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--green-dim);
@@ -632,8 +632,8 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 }
 .neighbor:hover { background: var(--bg-2); border-left-color: var(--green-dim); }
 .neighbor .dot { width: 8px; height: 8px; }
-.neighbor .t { font-size: 12px; color: var(--fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.neighbor .k { font-size: 9px; color: var(--fg-faint); letter-spacing: 0.08em; text-transform: uppercase; }
+.neighbor .t { font-size: 24px; color: var(--fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.neighbor .k { font-size: 18px; color: var(--fg-faint); letter-spacing: 0.08em; text-transform: uppercase; }
 .neighbor .k.in { color: var(--cyan); }
 .neighbor .k.out { color: var(--amber); }
 .neighbor .k.tag { color: var(--magenta); }
@@ -649,7 +649,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   background: var(--bg-2);
   border-bottom: 1px solid var(--line);
   padding: 6px 10px;
-  font-size: 10px;
+  font-size: 20px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--amber);
@@ -666,7 +666,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 @keyframes spin { 50% { opacity: 0.3; } }
 .ai-box .ai-body {
   padding: 10px;
-  font-size: 12px;
+  font-size: 24px;
   color: var(--fg);
   white-space: pre-wrap;
 }
@@ -678,7 +678,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   gap: 6px;
 }
 .ai-box .ai-actions button {
-  font-size: 10px;
+  font-size: 20px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 3px 8px;
@@ -693,7 +693,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   padding: 8px 12px;
   border-bottom: 1px solid var(--line);
   color: var(--fg-dim);
-  font-size: 10px;
+  font-size: 20px;
   background: var(--bg-1);
 }
 .qa-context .scope {
@@ -704,13 +704,13 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   flex: 1;
   overflow-y: auto;
   padding: 10px 12px;
-  font-size: 12px;
+  font-size: 24px;
   line-height: 1.55;
   min-height: 0;
 }
 .qa-msg { margin-bottom: 14px; }
 .qa-msg .who {
-  font-size: 10px;
+  font-size: 20px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 4px;
@@ -726,7 +726,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   gap: 4px;
 }
 .qa-cite {
-  font-size: 10px;
+  font-size: 20px;
   color: var(--green-dim);
   border: 1px solid var(--line-2);
   padding: 1px 5px;
@@ -751,14 +751,14 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   resize: none;
   min-height: 36px;
   max-height: 96px;
-  font-size: 12px;
+  font-size: 24px;
 }
 .qa-input-wrap button {
   background: var(--green);
   color: var(--bg);
   border-color: var(--green);
   font-weight: 600;
-  font-size: 10px;
+  font-size: 20px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 0 10px;
@@ -768,7 +768,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
 
 .qa-empty {
   color: var(--fg-faint);
-  font-size: 11px;
+  font-size: 22px;
   padding: 8px 0;
   line-height: 1.7;
 }
@@ -788,7 +788,7 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   font-family: var(--mono);
   color: var(--green);
   text-shadow: var(--glow);
-  font-size: 12px;
+  font-size: 24px;
 }
 .boot pre {
   white-space: pre;
