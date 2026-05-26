@@ -1,6 +1,8 @@
 # VaultMap for Obsidian
 
-A force-directed graph explorer for Obsidian vaults with AI-powered Q&A. No build steps: open `index.html` directly or serve from any static host. Just works.
+A force-directed graph explorer for Obsidian vaults with AI-powered Q&A. 
+
+No build steps: open `index.html` directly or serve from any static host. Just works.
 
 Live demo: https://shawndata.com/vaultmap/
 - Use Chrome for best experience
