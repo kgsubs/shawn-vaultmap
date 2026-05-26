@@ -1,6 +1,5 @@
 /* ============================================================
    Q&A PANEL — chat over selected note / lasso selection
-   Scope shown in the header; bodies stuffed as context to Claude.
    ============================================================ */
 
 const { useState, useEffect, useRef } = React;
@@ -14,7 +13,7 @@ function QAPanel({ vault, theme, qa, onSend, loading, onSelectNote }) {
     if (logRef.current) logRef.current.scrollTop = logRef.current.scrollHeight;
   }, [qa.messages.length, loading]);
 
-  const scopeIds = qa.scope; // Set
+  const scopeIds = qa.scope;
   const scopeNotes = scopeIds ? [...scopeIds].map(id => vault.byId[id]).filter(Boolean) : [];
 
   function send() {
@@ -25,6 +24,25 @@ function QAPanel({ vault, theme, qa, onSend, loading, onSelectNote }) {
   }
   function onKey(e) {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+  }
+  function exportChat() {
+    const lines = ['# VaultMap Chat Export', ''];
+    if (scopeNotes.length > 0) {
+      lines.push('**Scope:** ' + scopeNotes.map(n => n.title).join(', '));
+      lines.push('');
+    }
+    lines.push('---', '');
+    qa.messages.forEach(m => {
+      const who = m.role === 'user' ? 'you' : 'vaultmap';
+      lines.push(`**${who}**: ${m.text}`, '');
+    });
+    const blob = new Blob([lines.join('\n')], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'vaultmap-chat.md';
+    a.click();
+    URL.revokeObjectURL(url);
   }
 
   return (
@@ -59,7 +77,7 @@ function QAPanel({ vault, theme, qa, onSend, loading, onSelectNote }) {
         )}
         {qa.messages.map((m, i) => (
           <div key={i} className={`qa-msg ${m.role}`}>
-            <div className="who">{m.role === 'user' ? 'you' : 'claude'}</div>
+            <div className="who">{m.role === 'user' ? 'you' : 'vaultmap'}</div>
             <div className="body">{m.text}</div>
             {m.cites && m.cites.length > 0 && (
               <div className="cites">
@@ -79,7 +97,7 @@ function QAPanel({ vault, theme, qa, onSend, loading, onSelectNote }) {
         ))}
         {loading && (
           <div className="qa-msg ai">
-            <div className="who">claude</div>
+            <div className="who">vaultmap</div>
             <div className="body" style={{color:'var(--fg-dim)'}}>thinking<span className="spin" style={{display:'inline-block', width:6, height:6, background:'var(--amber)', marginLeft:6, verticalAlign:'middle', animation:'spin 0.8s steps(2,start) infinite'}}/></div>
           </div>
         )}
@@ -94,9 +112,14 @@ function QAPanel({ vault, theme, qa, onSend, loading, onSelectNote }) {
           placeholder={scopeNotes.length === 0 ? 'select a note first…' : 'ask a question…'}
           disabled={scopeNotes.length === 0 || loading}
         />
-        <button onClick={send} disabled={!input.trim() || loading || scopeNotes.length === 0}>
-          send
-        </button>
+        <div className="qa-btn-stack">
+          <button className="qa-send" onClick={send} disabled={!input.trim() || loading || scopeNotes.length === 0}>
+            send
+          </button>
+          <button className="qa-export" onClick={exportChat} disabled={qa.messages.length === 0}>
+            export
+          </button>
+        </div>
       </div>
     </div>
   );

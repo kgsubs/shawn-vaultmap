@@ -224,7 +224,7 @@ function NoteView({ vault, theme, note, render, onSelectNote, lassoSelection, on
             {aiState === 'loading' ? <><span className="spin"/> SUMMARIZING…</> : 'AI · SUMMARY'}
           </div>
           <div className={`ai-body ${aiSummary ? '' : 'dim'}`}>
-            {aiSummary || 'click "summarize" to get a 2–3 sentence gist of this note (uses Claude).'}
+            {aiSummary || 'click "summarize" to get a 2–3 sentence gist of this note.'}
           </div>
           <div className="ai-actions">
             <button onClick={summarize} disabled={aiState === 'loading'}>

@@ -767,18 +767,34 @@ input:focus, textarea:focus { border-color: var(--green-dim); }
   max-height: 96px;
   font-size: 12px;
 }
-.qa-input-wrap button {
-  background: var(--green);
-  color: var(--bg);
-  border-color: var(--green);
+.qa-btn-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-self: stretch;
+}
+.qa-btn-stack button {
+  flex: 1;
   font-weight: 600;
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 0 10px;
+  white-space: nowrap;
 }
-.qa-input-wrap button:hover { background: var(--fg); border-color: var(--fg); color: var(--bg); }
-.qa-input-wrap button:disabled { opacity: 0.4; cursor: not-allowed; }
+.qa-send {
+  background: var(--green);
+  color: var(--bg);
+  border-color: var(--green);
+}
+.qa-send:hover:not(:disabled) { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+.qa-export {
+  background: transparent;
+  color: var(--fg-dim);
+  border-color: var(--line-2);
+}
+.qa-export:hover:not(:disabled) { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+.qa-btn-stack button:disabled { opacity: 0.35; cursor: not-allowed; }
 
 .qa-empty {
   color: var(--fg-faint);
