@@ -56,7 +56,7 @@ function NotePanel({
         <div
           className={`tab ${qaTab === 'qa' ? 'active' : ''}`}
           onClick={() => setQaTab('qa')}
-        >Q&A {qa.scope ? <span className="badge">{qa.scope.size}</span> : ''}</div>
+        >Q&A {qa.messages.length > 0 && qa.scope ? <span className="badge">{qa.scope.size}</span> : ''}</div>
       </div>
 
       {qaTab === 'note' && (
