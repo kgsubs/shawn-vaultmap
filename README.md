@@ -7,6 +7,9 @@ Live demo: https://shawndata.com/vaultmap/
 - Allows pointing at your own Obsidian vault
 - Your data stays in local memory, never gets sent anywhere
 
+<img width="2048" height="1199" alt="Screenshot 2026-05-26 at 7 48 31 PM" src="https://github.com/user-attachments/assets/891392e2-53d1-49ba-a316-324ba1be0e3f" />
+
+
 ## What it does
 
 - Renders your Obsidian vault as an interactive force-directed graph (nodes = notes, edges = wikilinks)
