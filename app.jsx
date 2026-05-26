@@ -8,7 +8,7 @@ const DEFAULT_THEME = 'atlas';
 
 function App() {
   const [vault, setVault] = useState(() => window.VAULT);
-  const [themeId, setThemeId] = useState(DEFAULT_THEME);
+  const [themeId, setThemeId] = useState(() => localStorage.getItem('vm-theme') || DEFAULT_THEME);
   const theme = window.THEMES[themeId];
 
   const [groupBy, setGroupBy] = useState('folder'); // 'folder' | 'top-tag' | 'frontmatter:<field>'
@@ -25,8 +25,8 @@ function App() {
   const [qaLoading, setQaLoading] = useState(false);
   const [qaTab, setQaTab] = useState('note');
   const [boot, setBoot] = useState(true);
-  const [leftWidth, setLeftWidth] = useState(280);
-  const [rightWidth, setRightWidth] = useState(380);
+  const [leftWidth, setLeftWidth] = useState(() => parseInt(localStorage.getItem('vm-left-w'), 10) || 280);
+  const [rightWidth, setRightWidth] = useState(() => parseInt(localStorage.getItem('vm-right-w'), 10) || 380);
   const [showVaultModal, setShowVaultModal] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [aiStatus, setAiStatus] = useState(() => window.aiStatus());
@@ -41,7 +41,11 @@ function App() {
   // theme → body data attribute (drives CSS) — single source of truth
   useEffect(() => {
     document.body.setAttribute('data-theme', themeId);
+    localStorage.setItem('vm-theme', themeId);
   }, [themeId]);
+
+  useEffect(() => { localStorage.setItem('vm-left-w', leftWidth); }, [leftWidth]);
+  useEffect(() => { localStorage.setItem('vm-right-w', rightWidth); }, [rightWidth]);
 
   // recompute clusters whenever groupBy changes (or vault swaps)
   useEffect(() => {
