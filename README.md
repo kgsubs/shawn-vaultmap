@@ -52,23 +52,6 @@ Click the gear icon to configure a provider. Keys are stored only in your browse
 | OpenRouter | One key, many models |
 | Custom | Any OpenAI-compatible endpoint (Ollama, self-hosted, etc.) |
 
-## File map
-
-| File | Purpose |
-|---|---|
-| `index.html` | Entry point |
-| `app.jsx` | Root component, layout, state |
-| `graph.jsx` | D3 force simulation and canvas rendering |
-| `panel.jsx` | Note detail panel |
-| `qa.jsx` | Q&A chat panel |
-| `search.jsx` | Search and filter sidebar |
-| `vault-loader.jsx` | File picker and .md parser |
-| `vault.js` | Vault graph model |
-| `vault-data.js` | Demo dataset |
-| `providers.js` | AI provider adapters |
-| `settings.jsx` | Settings modal |
-| `themes.js` / `themes.css` | Theme definitions |
-
 ## License
 
 MIT
