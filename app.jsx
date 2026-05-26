@@ -453,7 +453,7 @@ function AIStatusPill({ status, onClick }) {
 
 function BootScreen() {
   const lines = [
-    'VAULT // semantic explorer',
+    'VaultMap Semantic Explorer',
     '',
     'mounting vault.................. ok',
     'parsing notes................... ok',

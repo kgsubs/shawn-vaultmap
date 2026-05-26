@@ -205,7 +205,7 @@ const PROVIDERS = {
         key, model: model || 'anthropic/claude-haiku-4-5', messages, maxTokens,
         extraHeaders: {
           'HTTP-Referer': window.location.origin || 'http://localhost',
-          'X-Title': 'Vault Semantic Explorer',
+          'X-Title': 'VaultMap Semantic Explorer',
         },
       });
     },
