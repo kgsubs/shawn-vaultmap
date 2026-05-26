@@ -1,0 +1,74 @@
+# Semantic Vault Explorer
+
+A force-directed graph explorer for Obsidian vaults with AI-powered Q&A.
+No build step -- open `index.html` directly or serve from any static host.
+
+![Theme preview](screenshots/01-themes.png)
+
+## What it does
+
+- Renders your Obsidian vault as an interactive force-directed graph (nodes = notes, edges = wikilinks)
+- Five visual themes: Phosphor, Atlas, Constellation, Brutalist, Linear
+- Full-text search across note titles, tags, and body
+- Side panel with rendered note markdown and neighbor links
+- Q&A panel: ask questions over selected notes or a lasso-selected region using any LLM
+
+## Usage
+
+### Open directly
+
+Double-click `index.html`. Works in any modern browser with no server required for the graph UI.
+
+### Serve statically
+
+```bash
+# Python
+python3 -m http.server 8080
+
+# Node
+npx serve .
+```
+
+Then open `http://localhost:8080`.
+
+## Loading your vault
+
+1. Click **Open Vault** in the top bar
+2. Select your Obsidian vault folder
+3. The browser reads `.md` files locally -- nothing is uploaded anywhere
+
+The included `vault-data.js` powers the default demo graph (500 mock notes across 12 topic clusters).
+
+## AI provider setup
+
+Click the gear icon to configure a provider. Keys are stored only in your browser's `localStorage` and are never sent anywhere except the provider's API.
+
+| Provider | Notes |
+|---|---|
+| DeepSeek | Cheap; good for summaries |
+| Kimi (Moonshot) | Large context window |
+| Anthropic | Direct API billing |
+| OpenAI | Direct API billing |
+| OpenRouter | One key, many models |
+| Custom | Any OpenAI-compatible endpoint (Ollama, self-hosted, etc.) |
+
+## File map
+
+| File | Purpose |
+|---|---|
+| `index.html` | Entry point |
+| `app.jsx` | Root component, layout, state |
+| `graph.jsx` | D3 force simulation and canvas rendering |
+| `panel.jsx` | Note detail panel |
+| `qa.jsx` | Q&A chat panel |
+| `search.jsx` | Search and filter sidebar |
+| `vault-loader.jsx` | File picker and .md parser |
+| `vault.js` | Vault graph model |
+| `vault-data.js` | Demo dataset |
+| `providers.js` | AI provider adapters |
+| `settings.jsx` | Settings modal |
+| `themes.js` / `themes.css` | Theme definitions |
+
+## License
+
+MIT
