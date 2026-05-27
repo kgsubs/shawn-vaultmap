@@ -75,7 +75,7 @@
         inLinks: [],
         body: '',
         wordCount: 0,
-        created: 1700000000000 + (hash(id) % 50000000000),
+        created: 1700000000000 + (hash(id) % 31536000000),
       };
       notes.push(note);
       byId[id] = note;

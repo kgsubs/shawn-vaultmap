@@ -15,7 +15,7 @@ Live demo: https://shawndata.com/vaultmap/
 ## What it does
 
 - Renders your Obsidian vault as an interactive force-directed graph (nodes = notes, edges = wikilinks)
-- Five visual themes: Phosphor, Atlas, Constellation, Brutalist, Linear
+- Three visual themes: Atlas, Constellation, Brutalist
 - Full-text search across note titles, tags, and body
 - Side panel with rendered note markdown and neighbor links
 - Q&A panel: ask questions over selected notes or a lasso-selected region using any LLM
@@ -69,6 +69,12 @@ Click the gear icon to configure a provider. Keys are stored only in your browse
 | `V` | Open / close vault picker |
 | `0` | Reset graph view |
 | `T` | Cycle theme |
+
+## Security
+
+API keys you enter in Settings are stored in your browser's localStorage. They never leave your device -- no server receives them, and no network calls are made except to the AI provider you select. To remove your keys, clear your browser's localStorage or use the Settings panel.
+
+Do not load vault files from untrusted sources.
 
 ## License
 

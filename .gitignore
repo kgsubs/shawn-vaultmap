@@ -4,5 +4,4 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
-*.md
-!README.md
+.thumbnail

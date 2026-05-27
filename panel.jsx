@@ -31,7 +31,10 @@ function configureMarked(vault) {
 
   return function render(md) {
     const pre = preprocessWikilinks(md);
-    return window.marked.parse(pre, { breaks: true });
+    return window.DOMPurify.sanitize(
+        window.marked.parse(pre, { breaks: true }),
+        { ADD_ATTR: ['data-vaultid'] }
+    );
   };
 }
 

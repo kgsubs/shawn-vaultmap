@@ -132,6 +132,7 @@ const PROVIDERS = {
     id: 'anthropic',
     name: 'Anthropic',
     subtitle: 'Direct calls to api.anthropic.com (separate billing from Claude Max).',
+    note: 'Most API keys will receive a CORS or 403 error from the browser. Use OpenRouter with a Claude model instead.',
     needsKey: true,
     keyHint: 'sk-ant-…',
     docsUrl: 'https://console.anthropic.com/settings/keys',

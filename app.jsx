@@ -212,7 +212,10 @@ ${context}`;
 
   function findCitedNoteIds(text, scope) {
     const found = new Set();
-    for (const n of scope) if (text.indexOf(n.title) >= 0) found.add(n.id);
+    function escRx(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+    for (const n of scope) {
+        if (new RegExp('(?:^|\\W)' + escRx(n.title) + '(?:\\W|$)', 'i').test(text)) found.add(n.id);
+    }
     return [...found];
   }
 

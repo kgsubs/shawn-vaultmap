@@ -236,7 +236,9 @@ const GraphCanvas = forwardRef(function GraphCanvas(props, ref) {
         color = th.edgeFocus;
         ctx.lineWidth = 1.2 / T.k;
       } else if (focus && (sFocus || tFocus)) {
-        color = th.edgeFocus.replace(/[\d.]+\)$/, '0.45)');
+        color = th.edgeFocus.includes(')')
+            ? th.edgeFocus.replace(/[\d.]+\)$/, '0.45)')
+            : th.edgeFocus + '73';
         ctx.lineWidth = 0.7 / T.k;
       } else if (filterActive && (!sVis || !tVis)) {
         color = th.edgeDim;

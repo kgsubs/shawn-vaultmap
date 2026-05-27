@@ -171,7 +171,7 @@ function SettingsModal({ onClose }) {
 
                   {config.providerId === 'anthropic' && (
                     <div className="sd-note">
-                      Note: this is the developer API (separate billing from Claude Max).
+                      Most API keys will receive a CORS or 403 error from the browser. Use OpenRouter with a Claude model instead.
                     </div>
                   )}
                 </>

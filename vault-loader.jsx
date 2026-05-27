@@ -364,7 +364,11 @@ function parseMarkdown(text, path) {
   const noCode = body.replace(/```[\s\S]*?```/g, ' ').replace(/`[^`]*`/g, ' ');
 
   // inline #tags
-  noCode.replace(/(^|[^\w&])#([A-Za-z][A-Za-z0-9_/-]*)/g, (_, _b, t) => { tags.add(t); return ''; });
+  noCode.replace(/(^|[^\w&])#([A-Za-z][A-Za-z0-9_/-]*)/g, (_, _b, t) => {
+    if (/^[a-f0-9]{3,8}$/i.test(t)) return '';
+    tags.add(t);
+    return '';
+  });
 
   // wikilinks — [[Target]], [[Target|alias]], [[Target#section]], [[folder/Target]]
   body.replace(/!?\[\[([^\]|#]+?)(?:#[^\]|]*)?(?:\|[^\]]*)?\]\]/g, (full, target) => {
@@ -398,7 +402,7 @@ function extractWikilinkTarget(v) {
   if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return null;
   // skip status/category-like single tokens (likely a scalar value, not a link)
   // — but path-like or multi-word strings ARE candidates
-  if (s.includes('/') || /\s/.test(s) || s.length > 8) return s;
+  if (s.includes('/') || /\s/.test(s)) return s;
   return null;
 }
 
@@ -834,3 +838,4 @@ function cleanDisplayTitle(raw) {
 }
 
 window.cleanDisplayTitle = cleanDisplayTitle;
+window.recomputeClusters = recomputeClusters;
