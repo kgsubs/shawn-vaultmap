@@ -1,9 +1,8 @@
 /* ============================================================
    VAULT LOADER — open a real Obsidian vault from disk
-   Three input methods (in preference order):
-     1. File System Access API (Chrome/Edge/Brave: showDirectoryPicker)
-     2. Drag & drop a folder
-     3. <input type="file" webkitdirectory> (fallback)
+   Two input methods:
+     1. Drag & drop a folder
+     2. <input type="file" webkitdirectory> (fallback)
 
    Parses .md files for frontmatter tags, inline #tags, and
    [[wikilinks]], then builds a vault object in the same shape
@@ -18,39 +17,6 @@ function VaultLoaderModal({ onClose, onVaultLoaded }) {
   const [error, setError] = vlUseState(null);
   const [dropping, setDropping] = vlUseState(false);
   const fileInputRef = vlUseRef(null);
-
-  async function pickViaFSAccess() {
-    if (!window.showDirectoryPicker) {
-      setError('File System Access API not available — try drag-and-drop or browse instead.');
-      return;
-    }
-    try {
-      const handle = await window.showDirectoryPicker({ mode: 'read' });
-      setStage('reading');
-      const files = [];
-      for await (const f of walkDirHandle(handle, '')) files.push(f);
-      await processFiles(files, async f => {
-        const file = await f.handle.getFile();
-        return file.text();
-      });
-    } catch (e) {
-      if (e.name === 'AbortError') { setStage('pick'); return; }
-      setError(String(e && e.message ? e.message : e));
-      setStage('error');
-    }
-  }
-
-  async function* walkDirHandle(handle, path) {
-    for await (const [name, h] of handle.entries()) {
-      if (name.startsWith('.') || name === 'node_modules') continue;
-      const subPath = path ? path + '/' + name : name;
-      if (h.kind === 'file') {
-        if (name.toLowerCase().endsWith('.md')) yield { name, path: subPath, handle: h };
-      } else if (h.kind === 'directory') {
-        yield* walkDirHandle(h, subPath);
-      }
-    }
-  }
 
   async function handleDrop(e) {
     e.preventDefault();
@@ -145,10 +111,6 @@ function VaultLoaderModal({ onClose, onVaultLoaded }) {
     if (fileInputRef.current) fileInputRef.current.click();
   }
 
-  const hasFSA = !!window.showDirectoryPicker;
-  // Cross-origin iframes can't actually invoke the picker even when the API exists.
-  const inIframe = (function() { try { return window.self !== window.top; } catch (_) { return true; } })();
-
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal" onClick={e => e.stopPropagation()}>
@@ -159,28 +121,8 @@ function VaultLoaderModal({ onClose, onVaultLoaded }) {
         <div className="modal-body">
           <p>Point this at any folder of <code>.md</code> files. Wikilinks, tags, and folder structure are parsed in your browser — nothing is uploaded anywhere.</p>
 
-          {inIframe && (
-            <div className="sd-note" style={{marginBottom: 12}}>
-              You're viewing this inside an embedded preview, which blocks the OS folder picker. <strong>Use drag &amp; drop</strong> for now. When you run the HTML on your own machine, all three options work.
-            </div>
-          )}
-
           {stage === 'pick' && (
             <div className="options">
-              <div
-                className={`opt ${hasFSA && !inIframe ? '' : 'disabled'}`}
-                onClick={() => hasFSA && !inIframe && pickViaFSAccess()}
-                title={inIframe ? 'Blocked inside embedded previews — works when you run the HTML locally' : (hasFSA ? '' : 'Requires Chrome, Edge, Brave, or Arc')}
-              >
-                <span className="icon">⌘</span>
-                <div>
-                  <div className="ttl">Pick folder
-                    <span className="badge">{inIframe ? 'Local only' : (hasFSA ? 'Best' : 'Unavailable')}</span>
-                  </div>
-                  <div className="sub">Opens your OS folder picker. Read-only access. Chrome / Edge / Brave / Arc.</div>
-                </div>
-              </div>
-
               <div
                 className={`opt ${dropping ? 'dropping' : ''}`}
                 onDragOver={e => { e.preventDefault(); setDropping(true); }}
