@@ -1,6 +1,8 @@
-# VaultMap for Obsidian
+# VaultMap
 
-A force-directed graph explorer for Obsidian vaults with AI-powered Q&A. 
+A force-directed graph explorer for markdownm vaults with AI-powered Q&A. 
+
+Works with Obsidian or any similar markdown-based file structure.
 
 No build steps: open `index.html` directly or serve from any static host. Just works.
 
