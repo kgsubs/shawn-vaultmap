@@ -2,7 +2,7 @@
 
 A force-directed graph explorer for markdown vaults with AI-powered Q&A. 
 
-Works with Obsidian or any similar markdown-based file structure.
+Works with Obsidian or any similar markdown-based vault.
 
 No build steps: open `index.html` directly or serve from any static host. Just works.
 
