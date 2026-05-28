@@ -1,6 +1,6 @@
 # VaultMap
 
-A force-directed graph explorer for markdownm vaults with AI-powered Q&A. 
+A force-directed graph explorer for markdown vaults with AI-powered Q&A. 
 
 Works with Obsidian or any similar markdown-based file structure.
 
