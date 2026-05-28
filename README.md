@@ -8,7 +8,7 @@ No build steps: open `index.html` directly or serve from any static host. Just w
 
 Live demo: https://shawndata.com/vaultmap/
 - Use Chrome for best experience
-- Allows pointing at your own Obsidian vault
+- Allows pointing at your own markdown vault
 - Your data stays in local memory, never gets sent anywhere
 
 <img width="2048" height="1199" alt="Screenshot 2026-05-26 at 7 48 31 PM" src="https://github.com/user-attachments/assets/891392e2-53d1-49ba-a316-324ba1be0e3f" />
@@ -16,7 +16,7 @@ Live demo: https://shawndata.com/vaultmap/
 
 ## What it does
 
-- Renders your Obsidian vault as an interactive force-directed graph (nodes = notes, edges = wikilinks)
+- Renders your markdown vault as an interactive force-directed graph (nodes = notes, edges = wikilinks)
 - Three visual themes: Atlas, Constellation, Brutalist
 - Full-text search across note titles, tags, and body
 - Side panel with rendered note markdown and neighbor links
@@ -43,7 +43,7 @@ Then open `http://localhost:8080`.
 ## Loading your vault
 
 1. Click **Open Vault** in the top bar
-2. Select your Obsidian vault folder
+2. Select your vault folder
 3. The browser reads `.md` files locally -- nothing is uploaded anywhere
 
 The included `vault-data.js` powers the default demo graph (500 mock notes across 12 topic clusters).
